@@ -14,11 +14,11 @@ We will get more implementation specific as we advance in the document.
 Below are the goals of the polyglot architecture.
 
 * Different programming languages can call each other seamlessly
-** example, IDLs written in JSON
+  * example, IDLs written in JSON
 * Modules in different programming languages have similar structure.
-** Similarity in how modules are written/loaded/executed.
+  * Similarity in how modules are written/loaded/executed.
 * Common code can be shared across implementation languages
-** example, Models and Validations
+  * example, Models and Validations
 
 
 ## Overview of Archiejs core module
@@ -32,9 +32,9 @@ The core node.js module for Archiejs does following things,
 * Static dependency management of plugins
 * Configuration management for plugins
 * Wrappers for plugin to make them into different services
-** DB layers
-** Microservices (RPC)
-** (todo) IPC calls on same machine
+  * DB layers
+  * Microservices (RPC)
+  * (todo) IPC calls on same machine
 
 In addition, Archiejs provides a way to write less cohesive code
 for your business and application logic.
@@ -51,11 +51,10 @@ than breaking in the runtime (as with require).
 
 Here are the conflicting points :-
 
-Method 1. In case of go, the dependencies are by default managed by import(..) statement.
+1. In case of go, the dependencies are by default managed by import(..) statement.
 Go is a statically checked/compiled language, so we really dont have to worry
 about checking the dependencies.
-
-Method 2. However, if we use provides/consumes with the go module, then js code will know
+2. However, if we use provides/consumes with the go module, then js code will know
 the services exported by the go module.
 
 #### Planned solution
@@ -75,10 +74,9 @@ the plugin. These configs are plugin specific.
 
 Now in case of go, we can explore following options.
 
-Method 1. Go imports a module which helps it manage configuration. These config options would
+1. Go imports a module which helps it manage configuration. These config options would
 not be plugin specific.
-
-Method 2. Go also has a plugin like structure.
+2. Go also has a plugin like structure.
 
 
 ### Wrappers for plugins
