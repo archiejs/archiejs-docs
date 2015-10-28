@@ -56,11 +56,12 @@ Go is a statically checked/compiled language, so we really dont have to worry
 about checking the dependencies.
 2. However, if we use provides/consumes with the go module, then js code will know
 the services exported by the go module.
+3. For later: what if go wants to import the dbWrapper module in js?
 
 #### Planned solution
 
-For the momenent we will go with 1. The solution would be to have 2 for autogeneration of js wrapper
-logic on the client side. Also go code will need to be put in a different directory.
+For the momenent we will go with [1] above. The solution would be to have [2] for autogeneration 
+of js wrapper logic on the client side. Also go code will need to be put in a different directory.
 
 #### Future plans
 
@@ -76,9 +77,34 @@ Now in case of go, we can explore following options.
 
 1. Go imports a module which helps it manage configuration. These config options would
 not be plugin specific.
-2. Go also has a plugin like structure.
+2. What if, Go also has a plugin like structure?
+3. The configurations are stored in JS files. How will we use them from 'go'?
 
 
 ### Wrappers for plugins
 
-To be continued...
+In node.js, wrappers can be used to add properties to objects, allowing them to do
+various things - act like microservers. This is achieved either by reflection (which
+is very easy in js) or by providing an IDL.
+
+
+... to be continued.
+
+## Rough notes
+
+These are rough notes for work in progress.
+
+### Implementing wrappers in go
+
+1. How does reflection work in go?
+2. How will we create wrappers automatically for microservices?
+3. How will a go module be accessed from js?
+4. How will a js module be accessed from go?
+
+### Implementing plugins format in go
+
+This includes initialisation, configuration & dependency management of plugins.
+
+1. What is a base class for a plugin in go? - structure of plugin in go
+2. How to read JSONs from Go?
+3. How to access data stored in jsons embedded inside js code?
