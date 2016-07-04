@@ -2,7 +2,8 @@
 
 In future, it will have documents related to archiejs.
 
-# Useful repositories for started
+
+## Repositories for starters
 
 1. demo-webapp-mongo-redis-ticket_booking
 
@@ -13,7 +14,17 @@ In future, it will have documents related to archiejs.
 
    A basic demo application which demonstrates chanining together modules in archiejs. 
 
-# Important repositories for core developers
+
+## Tools and boilerplate
+
+1. generator-archiejs
+
+   A generator for archiejs.
+
+Todo add boiler plate code repos for basic and webapps.
+
+
+## Repositories for core developers
 
 1. archiejs
 
@@ -27,12 +38,4 @@ In future, it will have documents related to archiejs.
 
    An enhancer which converts db tables into archiejs services, so that other modules can
    specifiy their dependency on particular db tables in a more fine grained manner.
-
-# Tools and boilerplate
-
-1. generator-archiejs
-
-   A generator for archiejs.
-
-Todo add boiler plate code repos for basic and webapps.
 
