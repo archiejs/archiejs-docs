@@ -1,3 +1,15 @@
+# Update
+
+Initially the goal of archiejs was to build a polyglot nodejs framework,
+where non-js code can seamlessly call the js modules. The binding logic
+is generated using enhancers in a seamless manner.
+
+This goal has currently been dropped, because of shortage of time with me
+and not being very sure on the best way to build such an enhancer.
+
+This is to be taken up later or by others.
+
+
 # Integrating Go into ArchieJS code
 
 Archiejs is a polyglot coding environment, where the HTTP layer is
