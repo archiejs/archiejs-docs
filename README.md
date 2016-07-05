@@ -17,7 +17,7 @@ In future, it will have documents related to archiejs.
 
 ## Tools and boilerplate
 
-1. generator-archiejs
+1. generator-archiejs (currently broken - needs repair)
 
    A generator for archiejs.
 
