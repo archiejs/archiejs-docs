@@ -1,6 +1,8 @@
 # Introduction 
 
-In future, it will have documents related to archiejs.
+* TODO * 
+
+We are currently looking for reviewers and plan to create more documentation soon. For now, the boiler-XX code (or demo-XX code), has several README.md files in different directories, explaining the purpose of code organization and the files present in that directory. 
 
 
 ## Repositories for starters
@@ -20,8 +22,10 @@ In future, it will have documents related to archiejs.
 1. generator-archiejs (currently broken - needs repair)
 
    A generator for archiejs.
-
-Todo add boiler plate code repos for basic and webapps.
+   
+2. boiler boiler-archiejs-express-mongo-redis
+   
+   Boilerplate code for archiejs webapp.
 
 
 ## Repositories for core developers
