@@ -25,11 +25,13 @@ Integrate mongodb schema files as archiejs services
 
 ## Demo apps
 
-1.  https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner [3]
+1.  https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner
+    
     A demo desktop app (which uses google apis). 
     NOTE: I have attached a file with my google credentials (and private key) to the mail; so that you dont have to go into the trouble of creating your own to try the project (i will keep them alive for next few days).
 
-2. https://github.com/archiejs/demo-webapp-mongo-redis-ticket_booking [4]
+2. https://github.com/archiejs/demo-webapp-mongo-redis-ticket_booking
+    
     A demo webapp
 
 
