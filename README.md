@@ -1,20 +1,36 @@
-# Introduction 
+# Introduction
 
-* TODO * 
+ArchieJS is a nodejs dependency injection framework, which allows you to break your nodejs project into loosely coupled modules, that are injected into each other during application startup. Archiejs is specially useful for managing large nodejs projects.
 
-We are currently looking for reviewers and plan to create more documentation soon. For now, the boiler-XX code (or demo-XX code), has several README.md files in different directories, explaining the purpose of code organization and the files present in that directory. 
+## Modules are loosely coupled
 
+Modules clearly define their boundaries, have their own test-suits, npm modules, configs, etc and this makes them more maintainable and reusable across the lifecycle of the project.
 
-## Repositories for starters
+## Modules are different from npm modules
 
-1. demo-webapp-mongo-redis-ticket_booking
+The difference with npm modules is that archiejs modules are a place for your business logic. They have interdependencies (provide and consume relationships) with other archiejs modules, which are specified in package.json files (using a new plugin keyword).
 
-   An extensive demo application which demonstrates using archiejs to build web applications and use of
-   kue and mongodb enhancers.
+Modules (ArchieJS) can have a lifecycle (ex. modules are initialized in the right sequence when your application starts). If one of the modules is missing, a flag is raised even before the application starts running. Modules are also like java packages in some regards - ie. they expose some specific functions, while hide the others.
 
-2. demo-basicapp-googlecloudvision-reciept-scanner
+## Enhancers for modules
 
-   A basic demo application which demonstrates chanining together modules in archiejs. 
+Enhancers are wrappers over archiejs modules.
+
+Enhancers is a not entirely a new concept. Enhancers are to Archiejs; what libraries like Promisify is to a function (ie. add wrappers over functions).
+
+We have used them in following ways :-
+
+Wrap modules into functions that are seamlessly called over redis-pub sub
+Integrate mongodb schema files as archiejs services
+
+## Demo apps
+
+1.  https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner [3]
+    A demo desktop app (which uses google apis). 
+    NOTE: I have attached a file with my google credentials (and private key) to the mail; so that you dont have to go into the trouble of creating your own to try the project (i will keep them alive for next few days).
+
+2. https://github.com/archiejs/demo-webapp-mongo-redis-ticket_booking [4]
+    A demo webapp
 
 
 ## Tools and boilerplate
