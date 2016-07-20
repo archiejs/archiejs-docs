@@ -20,8 +20,8 @@ Enhancers is a not entirely a new concept. Enhancers are to Archiejs modules; wh
 
 We have used them in following ways :-
 
-* Wrap modules into functions that are seamlessly called over redis-pub sub
-* Integrate mongodb schema files as archiejs services
+* Wrap modules such that they can be seamlessly called over redis-pub sub (like making normal function calls)
+* Integrate mongodb schema files as archiejs services in a cleaner fashion
 
 ## Demo apps
 
