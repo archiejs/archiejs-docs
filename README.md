@@ -16,7 +16,7 @@ Modules (ArchieJS) can have a lifecycle (ex. modules are initialized in the righ
 
 Enhancers are wrappers over archiejs modules.
 
-Enhancers is a not entirely a new concept. Enhancers are to Archiejs; what libraries like Promisify is to a function (ie. add wrappers over functions).
+Enhancers is a not entirely a new concept. Enhancers are to Archiejs modules; what libraries like Promisify is to a function (ie. add wrappers over functions).
 
 We have used them in following ways :-
 
