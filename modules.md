@@ -8,7 +8,7 @@ Modules clearly define their boundaries, have their own test-suits, npm modules,
 
 ## Modules are different from npm modules
 
-The difference with npm modules is that archiejs modules are a place for your business logic. They have interdependencies (provide and consume relationships) with other archiejs modules, which are specified in package.json files (using a new plugin keyword).
+The difference with npm modules is that archiejs modules are a place for your business logic. They have interdependencies (provide and consume relationships) with other archiejs modules, which are specified in their package.json files (using a new plugin keyword) and in a project wide js or json (which reads the dependency tree).
 
 Modules (ArchieJS) can have a lifecycle (ex. modules are initialized in the right sequence when your application starts). If one of the modules is missing, a flag is raised even before the application starts running. Modules are also like java packages in some regards - ie. they expose some specific functions, while hide the others.
 
