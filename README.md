@@ -32,7 +32,7 @@ These modules are **better** containers for business logic than NPM modules.
 
 These modules are has a lifecycle and are initialized as per the dependency tree.
 
-These modules are more loosely coupled than if they were `require`d and kepts as js files in a directory. They are easier to maintain over the years, as some parts of the project are rewritten; while other parts are still legacy. 
+These modules are more loosely coupled than if they were `require`d and kepts as js files in a directory. They are easier to maintain over the years, as some parts of the project are rewritten while other parts are still legacy. 
 
 # Demo apps
 
