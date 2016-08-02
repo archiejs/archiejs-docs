@@ -22,3 +22,12 @@ Many organizations and enterprises have used similar architecture to create larg
 
 These modules are better containers for business logic than NPM modules. A section below covers these differences.
 
+# Demo apps written with Archiejs
+
+1. (https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner) [Reciept scanner]
+  A demo application which runs on the commandline and scans the reciepts using google cloud vision APIs.
+
+2. (https://github.com/archiejs/demo-webapp-mongo-redis-ticket_booking) [Ticket booking microservice]
+  A demo application which demonstrates using `enhancers` (see below) to convert `booking` module into redis pub-sub microservice.
+
+
