@@ -32,12 +32,14 @@ These modules are **better** containers for business logic than NPM modules. A s
 
 # Sub-topics
 
-1. [Archiejs modules](#tbd) covers
+1. [Modules](#tbd) or ArchieJs modules
   1. Archiejs modules are different from npm modules
   2. How to write an Archiejs module
-2. [Description of repositories](#tbd)
-3. [Boilerplate code generation](#tbd)
-4. [Roadmap](#tbd)
+3. [Description of repositories](#tbd)
+4. [Boilerplate code generation](#tbd)
+5. [Advanced concepts](#tbd)
+   1. Enhancers
+5. [Roadmap](#tbd)
 
 # Comments, questions and criticisms
 
