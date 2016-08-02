@@ -17,10 +17,12 @@ project
   .           |
   .           ...  
   .   
-  +-- dependency tree in a json
+  +-- dependency tree
 ```
 
 you should read about Archiejs. This structure or architecture is also very popular in Java world.
+
+You can find examples for a [module directory](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/tree/master/modules) and [depenency tree js](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/blob/master/deptree.js) in our demo app.
 
 # Benefits
 
