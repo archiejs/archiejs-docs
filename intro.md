@@ -20,7 +20,7 @@ project
 
 Many organizations and enterprises have used similar architecture to create large manageable Nodejs projects. [ArchitectJs presentation](http://www.slideshare.net/sergimansilla/architecting-large-nodejs-applications-14912706) is a good source for understanding the benefits of the architecture.
 
-These modules are better containers for business logic than NPM modules. A section below covers these differences.
+These modules are **better** containers for business logic than NPM modules. A section below covers these differences.
 
 # Demo apps written with Archiejs
 
