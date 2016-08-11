@@ -38,7 +38,7 @@ You can find examples for a [module directory](https://github.com/archiejs/demo-
 ## Demo apps
 
 1. [Reciept scanner](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner) 
-  A demo application which runs on the commandline and scans the reciepts using google cloud vision APIs.
+  A demo application which runs on terminal and scans the reciepts (using google cloud vision APIs). You could build an IoT device with a camera and modify this demo app to give it capabilities of a scanner.
 
 2. [Ticket booking microservice](https://github.com/archiejs/demo-webapp-mongo-redis-ticket_booking) 
   A demo application which demonstrates using `enhancers` (see below) to convert `booking` module into redis pub-sub microservice.
