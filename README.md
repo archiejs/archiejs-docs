@@ -1,8 +1,12 @@
 # ArchieJS - a dependency injection framework
 
-ArchieJS is a dependency injection framework in NodeJS.
+ArchieJS is a dependency injection framework in NodeJS. It allows breaking up the code into modules and enforces developers to write code as a sum of isolated services. 
 
-It is derviced from ArchitectJs (developed by C9), and is written with a goal to mordernize and build more capabilities into it. We have added support for promises in module setup functions, improved error messages and made the code simpler/half in size.
+The modules in ArchieJS are very similar to NPM modules, except that a thin wrapper gives them some lifecycle events (such as initialization or termination) and they are injected into each other automatically (without a need for an explicit require). 
+
+# History
+
+It is derviced from ArchitectJs (developed by C9). It written with a goal to mordernize, simplify and build more capabilities into older ArchietectJs. We have added support for promises in module setup functions, improved error messages and made the code inside the library simpler (& about half in loc).
 
 # Usecase
 
@@ -26,13 +30,12 @@ You can find examples for a [module directory](https://github.com/archiejs/demo-
 
 # Benefits
 
-Many organizations and enterprises have used similar architectures for complex Nodejs projects. [ArchitectJs presentation](http://www.slideshare.net/sergimansilla/architecting-large-nodejs-applications-14912706) is a good source for understanding the benefits of the architecture.
+* Offers better handling of complex nodejs projects. [ArchitectJs presentation](http://www.slideshare.net/sergimansilla/architecting-large-nodejs-applications-14912706) is a good source for understanding the benefits of the architecture.
 
-These modules are **better** containers for business logic than NPM modules. 
+* Offers a way to write business logic in isolated modules - thin wrappers over NPM modules. 
 
-These modules are has a lifecycle and are initialized as per the dependency tree.
+* Modules have a lifecycle and are initialized as per the dependency tree.
 
-These modules are more loosely coupled than if they were `require`d and kepts as js files in a directory. They are easier to maintain over the years, as some parts of the project are rewritten while other parts are still legacy. 
 
 # Demo apps
 
@@ -42,10 +45,11 @@ These modules are more loosely coupled than if they were `require`d and kepts as
 2. [Ticket booking microservice](https://github.com/archiejs/demo-webapp-mongo-redis-ticket_booking) 
   A demo application which demonstrates using `enhancers` (see below) to convert `booking` module into redis pub-sub microservice.
 
+
 # Subtopics
 
 1. [Modules](#tbd) or ArchieJs modules
-  1. How are Archiejs modules are different from npm modules?
+  1. How are Archiejs modules are different from npm modules? (Ans: They are not, they are thin wrappers over the same.)
   2. How to write an Archiejs module?
   3. Enhancers and usecases?
 3. [Description of repositories](#tbd)
@@ -57,6 +61,7 @@ These modules are more loosely coupled than if they were `require`d and kepts as
 5. [Roadmap](#tbd)
   1. Serverless architectures
   2. Microservices architectures
+  3. IoT applications
 
 # 
 
