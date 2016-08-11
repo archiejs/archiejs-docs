@@ -19,9 +19,16 @@ We added following :-
 
 _todo_
 
+
+### Q. How to establish are provide/consume relationship between two Archiejs module?
+
+_todo_
+
+
 ### Q. What are enhancers?
 
 _todo_
+
 
 ### Q. How to apply enhancers to Archiejs modules?
 
