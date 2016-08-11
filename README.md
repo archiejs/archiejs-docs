@@ -46,10 +46,10 @@ You can find examples for a [module directory](https://github.com/archiejs/demo-
 
 ## Subtopics
 
-1. [Modules](#tbd) or ArchieJs modules
-  1. How are Archiejs modules are different from npm modules? (Ans: They are not, they are thin wrappers over the same.)
+1. [ArchieJs Modules](https://github.com/archiejs/archiejs-docs/blob/master/modules_faq.md)
+  1. How are Archiejs modules are different from npm modules?
   2. How to write an Archiejs module?
-  3. Enhancers and usecases?
+  3. What are enhancers and how can we use them?
 3. [Description of repositories](#tbd)
 4. [Boilerplate code generation](#tbd)
 5. [General](#tbd)
