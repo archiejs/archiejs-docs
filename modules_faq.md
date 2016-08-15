@@ -48,7 +48,7 @@ _You will also need to read the next Q&A, `How to club archiejs modules in a dep
           'Optional_Some_Service_We_Consume',
           'Optional_Another_Service_We_Consume'
        ]
-    }
+    },
     ```
     
 3. In file `service1.js`;
