@@ -23,6 +23,7 @@ _You will also need to read the next Q&A, `How to club archiejs modules in a dep
     
     ```
     $ mkdir -p modules/mymodule
+    $ cd modules/mymodule
     $ npm init
     $ touch service1.js service2.js
     ```
