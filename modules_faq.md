@@ -17,10 +17,55 @@ We added following :-
 
 ### Q. How to write an Archiejs module?
 
-_todo_
+_You will also need to read the next Q&A, `How to club archiejs modules in a dependency tree`?_
 
+1. Create a directory for your module 
+```
+$ mkdir -p modules/mymodule
+$ npm init
+$ touch service1.js service2.js
+```
+2. Change the contents of package.json as follows. 
+   From below :-
+   ```
+   main: 'index.js',
+   ```
+   Change package.json to (remove main above and add json below) :-
+   ```
+   plugin: {
+     provides: {
+       Service_1: 'service1.js',
+       Service_2: 'service2.js'
+     },
+     consumes: [
+       'Optional_Some_Service_We_Consume',
+       'Optional_Another_Service_We_Consume'
+     ]
+   }
+   ```
+3. In file `service1.js`;
+   we can use es5 classes
+   ```
+   module.exports = function setup(options, imports) {
+     // return a promise (that returns this/object) or a simple function
+   }
+   
+   setup.prototype.doSomething = function() {}
+   ```
+   or es6 classes
+   ```
+   class Service1 {
+    constructor(options, imports) {
+      // return a promise (that returns this/object) or a simple function
+    }
+    
+    doSomething() {}
+   }
+   ```
 
-### Q. How to establish are provide/consume relationship between two Archiejs module?
+Now we are ready to consume `Service1` and `Service2`, as it suits us.
+
+### Q. How to establish are provide/consume relationship between Archiejs module?
 
 _todo_
 
