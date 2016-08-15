@@ -56,7 +56,7 @@ _You will also need to read the next Q&A, `How to club archiejs modules in a dep
     we can use es5 classes
     
     ```
-    module.exports = function setup(options, imports) {
+    module.exports = function setup(configs, imports) {
      // return a promise (that returns this/object) or a simple function
     }
     
@@ -66,13 +66,15 @@ _You will also need to read the next Q&A, `How to club archiejs modules in a dep
     or es6 classes
     
     ```
-    class Service1 {
-      constructor(options, imports) {
-          // return a promise (that returns this/object) or a simple function
-       }
-    
-       doSomething() {}
-    }
+     class Service1 {
+         constructor(configs, imports) {
+             // return a promise (that returns this/object) or a simple function
+         }
+     
+         doSomething() {}
+     }
+     
+     module.exports = Service1;
     ```
     
 Now we are ready to consume `Service1` and `Service2`, as we named them under `plugin.provides`.
