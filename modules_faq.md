@@ -1,5 +1,7 @@
 # ArchieJs Modules - FAQ
 
+## Q&A about modules
+
 ### Q. How are Archiejs modules are different from npm modules?
 
 Ans: Not very different - are an enhancement. 
@@ -123,11 +125,19 @@ Also see the file [`test/archie-unit.js`](https://github.com/archiejs/demo-basic
 `Enhancers` allow us to add a modify the services, just before they are loaded. We can add new fields to `plugin` tag in `package.json` and create an enhancer to process the service. They are an advanced concept. Examples of enhancers are provided,
 
 1. [A mongodb enhancer](https://github.com/archiejs/archiejs-mongo-enhancer) and its usage in [demo application (models directory)](https://github.com/archiejs/demo-webapp-mongo-redis-ticket_booking/blob/master/models/package.json). It makes it convenient to provide mongoose models as archiejs services (which can be individually/explicitly consumed by other services ([see `consumes` here](https://github.com/archiejs/demo-webapp-mongo-redis-ticket_booking/blob/master/modules/bookings/package.json)).
-2. [A kue enhancer]() and its usage [demo application (microservice)](). It makes it convenient to break models into separate microservices.
-2. [A redis enhancer]
+2. [A kue enhancer](https://github.com/archiejs/archiejs-kue-enhancer) and its usage [demo application (microservice)](https://github.com/archiejs/demo-webapp-mongo-redis-ticket_booking). It makes it convenient to break models into separate microservices. You should see files `deptree.js` and `modules/bookings/package.json` to see semantics or usage of this particular enhancer.
 
+Right now, archiejs does not have many `Enhancers`. Some were added for demo purposes.
 
-### Q. How to apply enhancers to Archiejs modules?
+We would be writing more about `enhancers` in future. 
 
-_todo_
+# Summary of main points
+
+* Modules are containers for services it `provides`.
+* Modules are dependent on services it `consumes`.
+* To create an app, all its constituent modules are specied in an array of constituting modules.
+* The above array is consumed by Archiejs api `resolveConfig`, into a dependency tree.
+* The dependency tree returned by resolveConfig is used to create an app with `createApp`
+ 
+
 
