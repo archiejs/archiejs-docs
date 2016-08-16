@@ -21,61 +21,54 @@ _You will also need to read the next Q&A, `How to club archiejs modules in a dep
 
 1. Create a directory for your module 
     
-    ```
-    $ mkdir -p modules/mymodule
-    $ cd modules/mymodule
-    $ npm init
-    $ touch service1.js service2.js
+  ```
+  $ mkdir -p modules/mymodule
+  $ cd modules/mymodule
+  $ npm init
+  $ touch service1.js service2.js
     ```
     
 2. Change the contents of `package.json` as follows. 
     
-    Remove `main` from  package file.
-    
-    ```
-    main: 'index.js',
-    ```
-    
-    Instead add a `plugins` to package file.
-    
-    ```
-    plugin: {
-       provides: {
-          Service_1: 'service1.js',
-          Service_2: 'service2.js'
-       },
-       consumes: [
-          'Optional_Some_Service_We_Consume',
-          'Optional_Another_Service_We_Consume'
-       ]
-    },
-    ```
+  ~~main: 'index.js',~~
+  ```
+  plugin: {
+     provides: {
+        Service_1: 'service1.js',
+        Service_2: 'service2.js'
+     },
+     consumes: [
+        'Optional_Some_Service_We_Consume',
+        'Optional_Another_Service_We_Consume'
+     ]
+  },
+  ```
     
 3. In file `service1.js`;
     
-    we can use es5 classes
+  we can use es5 classes
     
-    ```
-    module.exports = function setup(configs, imports) {
-     // return a promise (that returns this/object) or a simple function
+  ```
+  module.exports = function setup(configs, imports) {
+    // return a promise (that returns this/object) or a simple function
+  }
+    
+  setup.prototype.doSomething = function() {}
+  ```
+    
+  or es6 classes
+    
+  ```
+  class Service1 {
+    constructor(configs, imports) {
+      // return a promise (that returns this/object) or a simple function
     }
-    
-    setup.prototype.doSomething = function() {}
-    ```
-    
-    or es6 classes
-    
-    ```
-     class Service1 {
-         constructor(configs, imports) {
-             // return a promise (that returns this/object) or a simple function
-         }
      
-         doSomething() {}
-     }
+    doSomething() {}
+  }
      
-     module.exports = Service1;
-    ```
+  module.exports = Service1;
+  ```
     
 Now we are ready to consume `Service1` and `Service2`, as we named them under `plugin.provides`.
 
