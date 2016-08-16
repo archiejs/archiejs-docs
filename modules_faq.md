@@ -35,7 +35,7 @@ _You will also need to read the next Q&A, `How to club archiejs modules together
   
   ~~main: 'index.js',~~
   
-  Add or replace with
+  Replace with
   
   ```
   plugin: {
@@ -85,9 +85,9 @@ Other semantics can be used to define module services can be found with the [tes
 
 This is an explaination of `provides` and `consumes` dependency in archiejs modules. 
 
-Add modules into a list, see [line 29 ie. `exports.app` here] (https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/blob/master/deptree.js).
+For a working example of modules making an app, see [line 29 ie. `exports.app` here] (https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/blob/master/deptree.js).
 
-In below example, we define two ways to link a module into the dependency tree created by archiejs. The first one below if a long form one (which also allows us to pass config options to the module). The second one below, is the shortform method.
+In below example, we domonstrate two ways to link a module into the dependency tree - a long form one (with `config` data) and a short form one (just the module path).
 
 ```
 var theAppModules = [
@@ -99,7 +99,7 @@ var theAppModules = [
 ]
 ```
 
-Next, pass the `linked_modules` to archiejs, for loading them ([see line 17 here](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/blob/master/app.js)).
+Next, pass the `theAppModules` to archiejs for creating the dependency tree ([see line 17 here](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/blob/master/app.js)).
 
 ```
 var servicesTree = Archie.resolveConfig(theAppModules, process.cwd()); 
