@@ -4,9 +4,11 @@ ArchieJS is a dependency injection framework in NodeJS. It allows breaking up th
 
 The modules in ArchieJS are very similar to NPM modules, except that a thin wrapper gives them some lifecycle events (such as initialization or termination) and they are injected into each other automatically (without a need for an explicit require). 
 
+
 ## History
 
 It is derviced from ArchitectJs (developed by C9). It written with a goal to mordernize, simplify and build more capabilities into older ArchietectJs. We have added support for promises in module setup functions, improved error messages and made the code inside the library simpler (& about half in loc).
+
 
 ## Usecase
 
@@ -28,11 +30,11 @@ you should read about Archiejs. This structure or architecture is also very popu
 
 You can find examples for a [module directory](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/tree/master/modules) and [dependency tree (see var `exports.app`)](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/blob/master/deptree.js) in our demo app.
 
+
 ## Benefits
 
 * Offers better handling of complex nodejs projects. [ArchitectJs presentation](http://www.slideshare.net/sergimansilla/architecting-large-nodejs-applications-14912706) is a good source for understanding the benefits of the architecture.
 * Offers a way to write business logic in isolated modules - thin wrappers over NPM modules. Modules have a lifecycle and are initialized as per the dependency tree.
-
 
 
 ## Demo apps
@@ -44,22 +46,34 @@ You can find examples for a [module directory](https://github.com/archiejs/demo-
   A demo application which demonstrates using `enhancers` (see below) to convert `booking` module into redis pub-sub microservice.
 
 
+## Boilerplate
+
+Install archiejs cli
+
+```
+npm install -g yo
+npm install -g generator-archiejs
+```
+
+Create boilerplate code
+
+```
+yo archiejs project-name
+```
+
+
 ## Subtopics
 
 1. [ArchieJs Modules](https://github.com/archiejs/archiejs-docs/blob/master/modules_faq.md)
   1. How are Archiejs modules are different from npm modules?
   2. How to write an Archiejs module?
   3. What are enhancers and how can we use them?
-3. [Description of repositories](#tbd)
-4. [Boilerplate code generation](#tbd)
-5. [General](#tbd)
+3. [Description of repositories](https://github.com/archiejs/archiejs-docs/blob/master/about_repositories.md)
+5. [General](https://github.com/archiejs/archiejs-docs/blob/master/general.md)
   1. Benefits of depenency injection
   2. Other dependency injection frameworks in Nodejs
   3. Comparision with Architectjs
-5. [Roadmap](#tbd)
-  1. Serverless architectures
-  2. Microservices architectures
-  3. IoT applications
+  4. Roadmap
 
 
 ## Comments, questions and criticisms
