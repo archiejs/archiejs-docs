@@ -122,7 +122,11 @@ Also see the file [`test/archie-unit.js`](https://github.com/archiejs/demo-basic
 
 ### Q. What are enhancers?
 
-`Enhancers` allow us to add a modify the services, just before they are loaded. We can add new fields to `plugin` tag in `package.json` and create an enhancer to process the service. They are an advanced concept. Examples of enhancers are provided,
+`Enhancers` allow us to add a modify the services just before they are loaded. 
+
+Enhancers is a not entirely a new concept. Enhancers are to Archiejs modules; what libraries like Promisify is to a function (ie. add wrappers over functions).
+
+Some examples of enhancers are provided in demo apps,
 
 1. [A mongodb enhancer](https://github.com/archiejs/archiejs-mongo-enhancer) and its usage in [demo application (models directory)](https://github.com/archiejs/demo-webapp-mongo-redis-ticket_booking/blob/master/models/package.json). It makes it convenient to provide mongoose models as archiejs services (which can be individually/explicitly consumed by other services ([see `consumes` here](https://github.com/archiejs/demo-webapp-mongo-redis-ticket_booking/blob/master/modules/bookings/package.json)).
 2. [A kue enhancer](https://github.com/archiejs/archiejs-kue-enhancer) and its usage [demo application (microservice)](https://github.com/archiejs/demo-webapp-mongo-redis-ticket_booking). It makes it convenient to break models into separate microservices. You should see files `deptree.js` and `modules/bookings/package.json` to see semantics or usage of this particular enhancer.
