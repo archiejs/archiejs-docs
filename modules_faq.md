@@ -72,10 +72,40 @@ _You will also need to read the next Q&A, `How to club archiejs modules in a dep
     
 Now we are ready to consume `Service1` and `Service2`, as we named them under `plugin.provides`.
 
+Other semantics can be used to define module services can be found with the [testcases](https://github.com/archiejs/archiejs/tree/master/test).
+
 
 ### Q. How to establish are provide/consume relationship between Archiejs module?
 
-_todo_
+Add modules into a list, see [line 29 ie. `exports.app` here] (https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/blob/master/deptree.js).
+
+In below example, we define two ways to link a module into the dependency tree created by archiejs. The first one below if a long form one (which also allows us to pass config options to the module). The second one below, is the shortform method.
+
+```
+var theAppModules = [
+  {
+    packagePath: 'modules/mymodule1',
+    ... config options ...
+  },
+  'modules/mymodule2'
+]
+```
+
+Next, pass the `linked_modules` to archiejs, for loading them ([see line 17 here](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/blob/master/app.js)].
+
+```
+var servicesTree = Archie.resolveConfig(theAppModules, process.cwd()); 
+Archie.createApp(servicesTree, function(err, archie) {
+    if(err){
+        throw err;
+    }
+    // ready
+});
+```
+
+NOTE: the second argument in resolveConfig (above) is the root path, relative to which all packagePath's are loaded.
+
+Also, when we reach `ready` comment above, all the modules have been initialized (in the order derviced from their `produces` and `consumes` tags).
 
 
 ### Q. How to do TDD with archiejs modules?
