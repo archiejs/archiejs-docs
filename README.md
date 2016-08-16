@@ -68,12 +68,14 @@ yo archiejs project-name
   1. How are Archiejs modules are different from npm modules?
   2. How to write an Archiejs module?
   3. What are enhancers and how can we use them?
-3. [Description of repositories](https://github.com/archiejs/archiejs-docs/blob/master/about_repositories.md)
-5. [General](https://github.com/archiejs/archiejs-docs/blob/master/general.md)
-  1. Benefits of depenency injection
-  2. Other dependency injection frameworks in Nodejs
-  3. Comparision with Architectjs
-  4. Roadmap
+2. [Description of repositories](https://github.com/archiejs/archiejs-docs/blob/master/about_repositories.md)
+
+
+## Roadmap 
+
+Currently, I am interested in seeing feedback on Archiejs from various members of the open source community. The biggest advantage of this architecture is being able to write the code in isolated modules. It can be easily broken up into microservices, as in the web demo app.
+
+It would also be interesting to see if `archiejs modules` can be seamlessly converted into serverless lamdas or if there are interesting usecases in IoT for archiejs depedency injection. 
 
 
 ## Comments, questions and criticisms
