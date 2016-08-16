@@ -1,6 +1,6 @@
 # Description of repositories
 
-The archiejs project currently has about 7 repositories (including this one). Below is a description of the repositories.
+The archiejs project currently has about 7 repositories (excluding this one). Below is a description of the repositories.
 
 ## Demo apps
 
