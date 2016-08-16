@@ -30,8 +30,13 @@ _You will also need to read the next Q&A, `How to club archiejs modules together
     ```
     
 2. Change the contents of `package.json` as follows. 
-    
+
+  Remove
+  
   ~~main: 'index.js',~~
+  
+  Add or replace with
+  
   ```
   plugin: {
      provides: {
