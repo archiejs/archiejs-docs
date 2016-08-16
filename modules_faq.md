@@ -120,7 +120,7 @@ Also, when we reach `ready` comment above, all the modules have been initialized
 
 Each of the module should be sufficiently isolated from other modules and have their own testcase folder. 
 
-We the `test` folder in [example app](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/tree/master/modules/googledrive).
+For example, see `test` folder in the [example app](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/tree/master/modules/googledrive).
 
 Also see the file [`test/archie-unit.js`](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/blob/master/modules/googledrive/test/archie-unit.js) which loads the dependencies for testcases.
 
