@@ -11,13 +11,12 @@ them better for writing business logic.
 We added following :-
 
 1. Support for lifecycle events of initialization and termination. 
-2. Automatic depenency injection of modules into one-another based on `produce` and `consumes` tags
+2. Automatic depenency injection of modules into one-another based on `provides` and `consumes` tags
 3. Enchance modules by specifying `enhancer` tag
-
 
 ### Q. How to write an Archiejs module?
 
-_You will also need to read the next Q&A, `How to club archiejs modules in a dependency tree`?_
+_You will also need to read the next Q&A, `How to club archiejs modules together in an application`?_
 
 1. Create a directory for your module 
     
@@ -75,7 +74,9 @@ Now we are ready to consume `Service1` and `Service2`, as we named them under `p
 Other semantics can be used to define module services can be found with the [testcases](https://github.com/archiejs/archiejs/tree/master/test).
 
 
-### Q. How to establish are provide/consume relationship between Archiejs module?
+### Q. How to club archiejs modules together in an application?
+
+This is an explaination of `provides` and `consumes` dependency in archiejs modules. 
 
 Add modules into a list, see [line 29 ie. `exports.app` here] (https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/blob/master/deptree.js).
 
@@ -91,7 +92,7 @@ var theAppModules = [
 ]
 ```
 
-Next, pass the `linked_modules` to archiejs, for loading them ([see line 17 here](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/blob/master/app.js)].
+Next, pass the `linked_modules` to archiejs, for loading them ([see line 17 here](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/blob/master/app.js)).
 
 ```
 var servicesTree = Archie.resolveConfig(theAppModules, process.cwd()); 
@@ -119,7 +120,11 @@ Also see the file [`test/archie-unit.js`](https://github.com/archiejs/demo-basic
 
 ### Q. What are enhancers?
 
-_todo_
+`Enhancers` allow us to add a modify the services, just before they are loaded. We can add new fields to `plugin` tag in `package.json` and create an enhancer to process the service. They are an advanced concept. Examples of enhancers are provided,
+
+1. [A mongodb enhancer](https://github.com/archiejs/archiejs-mongo-enhancer) and its usage in [demo application (models directory)](https://github.com/archiejs/demo-webapp-mongo-redis-ticket_booking/blob/master/models/package.json). It makes it convenient to provide mongoose models as archiejs services (which can be individually/explicitly consumed by other services ([see `consumes` here](https://github.com/archiejs/demo-webapp-mongo-redis-ticket_booking/blob/master/modules/bookings/package.json)).
+2. [A kue enhancer]() and its usage [demo application (microservice)](). It makes it convenient to break models into separate microservices.
+2. [A redis enhancer]
 
 
 ### Q. How to apply enhancers to Archiejs modules?
