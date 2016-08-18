@@ -14,11 +14,11 @@ In this part of the tutorial, we will explore how we can create an X module with
 ### Modules in points
 
   * A module is container for one or many services, which the module `provides` to others. 
-  ** The services modules are are specified in `plugin.provides` key in `package.json` . This is usually the recommended technique.
-  ** A module with only one service to provide (and none to consume), can be just an `index.js` file with a `setup` function.
-  ** A module can also consume other services by specifing them in `consumes` tag in `package.json`.
+   * The services modules are are specified in `plugin.provides` key in `package.json` . This is usually the recommended technique.
+   * A module with only one service to provide (and none to consume), can be just an `index.js` file with a `setup` function.
+   * A module can also consume other services by specifing them in `consumes` tag in `package.json`.
   * A number of services inside modules are aggregated together as a list to run as an application.
-  ** If some service is consumed, but not provided, it will result in appropriate `error` and the application will not run.
+   * If some service is consumed, but not provided, it will result in appropriate `error` and the application will not run.
 
 
 ### Multiple ways of writing Archiejs modules
