@@ -34,7 +34,8 @@ You can find examples for a [module directory](https://github.com/archiejs/demo-
 ## Benefits
 
 * Offers better handling of complex nodejs projects. [ArchitectJs presentation](http://www.slideshare.net/sergimansilla/architecting-large-nodejs-applications-14912706) is a good source for understanding the benefits of the architecture.
-* Offers a way to write business logic in isolated modules - thin wrappers over NPM modules. Modules have a lifecycle and are initialized as per the dependency tree.
+* Offers a way to write business logic in isolated modules - thin wrappers over NPM modules. 
+* Modules have a lifecycle and are initialized in proper sequence, as per the dependency injection tree.
 
 
 ## Demo apps
