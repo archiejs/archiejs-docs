@@ -26,7 +26,7 @@ The archiejs project currently has about 7 repositories (excluding this one). Be
 
 ## Repositories for core developers
 
-1. [Archiejs code module](https://github.com/archiejs/archiejs)
+1. [Archiejs core module](https://github.com/archiejs/archiejs)
 
    The core archiejs module.
 
