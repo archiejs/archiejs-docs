@@ -2,9 +2,9 @@
 
 This is a tutorial about creating archiejs modules. The tutorial has below parts, where we will :-
 
-Part 1. Explore creating a module using different semantics.
-Part 2. Describle linking together the modules to create an application.
-Part 3. Explore unit testing of archiejs modules.
+* Part 1. Explore creating a module using different semantics.
+* Part 2. Describle linking together the modules to create an application.
+* Part 3. Explore unit testing of archiejs modules.
 
 
 ## Part 1 - Different semantics of Archiejs modules
@@ -14,7 +14,7 @@ In this part of the tutorial, we will explore how we can create an X module with
 ### Modules in points
 
   * A module is container for one or many services, which the module `provides` to others. 
-   * The services modules are are specified in `plugin.provides` key in `package.json` . This is usually the recommended technique.
+   * The services modules are are specified in `plugin.provides` key in `package.json`.
    * A module with only one service to provide (and none to consume), can be just an `index.js` file with a `setup` function.
    * A module can also consume other services by specifing them in `consumes` tag in `package.json`.
   * A number of services inside modules are aggregated together as a list to run as an application.
