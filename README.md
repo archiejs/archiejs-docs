@@ -76,7 +76,7 @@ yo archiejs project-name
 
 Currently, I am interested in seeing feedback on Archiejs from various members of the open source community. The biggest advantage of this architecture is being able to write the code in isolated modules. It can be easily broken up into microservices, as in the web demo app.
 
-Another feature on the roadmap, would be to introduce @provides and @consumes directly in `js` files (outside of package.json).
+Another feature on the roadmap, would be to introduce @provides and @consumes annotations directly in `js` files (outside of package.json).
 
 It would also be interesting to see if `archiejs modules` can be seamlessly converted into serverless lamdas or if there are interesting usecases in IoT for archiejs depedency injection. 
 
