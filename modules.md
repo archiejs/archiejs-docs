@@ -113,7 +113,7 @@ Next, we can create a module with two `js` files.
 ### A module with two javascript files
 
 We may want to spread services across multiple js files. Now, each js file can export a 
-`setup` function. Note, how `file.js` changes.
+`setup` function. Note, how `package.json` changes.
 
 modules/theTime/package.json
 ```
