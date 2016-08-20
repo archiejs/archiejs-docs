@@ -37,13 +37,14 @@ There are multiple ways of creating archiejs modules. They are listed as below :
 
 We will create a very simple module which does not provide or consume anything.
 
-```modules/doesNothing/index.js
+modules/doesNothing/index.js
+```
 module.exports = function setup(options, imports) {
   console.log('doesNothing initialized');
 }
 ```
-
-```modules/doesNothing/package.json
+modules/doesNothing/package.json
+```
 {
   ...
   plugin: {
@@ -52,8 +53,8 @@ module.exports = function setup(options, imports) {
   }
 }
 ```
-
-```./app.js
+./app.js
+```
 const archie = require('archiejs');
 const theModules = [ 'modules/doesNothing' ];
 const theDependencyTree = archie.resolveConfig(theModules);
