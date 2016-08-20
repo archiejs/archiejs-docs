@@ -19,10 +19,6 @@ This is a tutorial about creating archiejs modules. The tutorial has below parts
 
 ## Part 1 - Different semantics of Archiejs modules
 
-In this part of the tutorial, we will explore how we can create an X module with provides services X1 and X2. And also consumes a service Y1 (which is provided in another module Y).
-
-### Multiple ways of writing Archiejs modules
-
 There are multiple ways of creating archiejs modules. In below example, we will start with a very simple module (which does nothing and is composed in a single function) and move towards more complex examples. This might be lengthy, because its comprihensive. You may not need to read this word by word.
 
 
@@ -88,7 +84,7 @@ module.exports = function setup(options, imports) {
     'theTimeNow': () => new Date()  
   }
 }
-
+```
 Next, lets add one more service into `time.js`
 
 ### A module with two services
@@ -111,7 +107,7 @@ module.exports = function setup(options, imports) {
     'isItLate': () => new Date().getHours() > 22 
   }
 }
-
+```
 Next, we can create a module with two `js` files.
 
 ### A module with two javascript files
@@ -136,6 +132,7 @@ module.exports = function setup(options, imports) {
     'isItLate': () => new Date().getHours() > 22 
   }
 }
+```
 modules/theTime/other.js
 ```
 module.exports = function setup(options, imports) {
