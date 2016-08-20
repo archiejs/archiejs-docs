@@ -25,9 +25,15 @@ In this part of the tutorial, we will explore how we can create an X module with
 
 There are multiple ways of creating archiejs modules. They are listed as below :-
 
-  1. es5 classes
-  2. es6 classes
-  3. single index.js file
+| Module type                           | Name             | Provides             | Consumes             |
+|---------------------------------------|------------------|----------------------|----------------------|
+| One function module, one js file      | SimpleOneFunc    | | | |
+| Single index.js file, one js file     | SimpleOneFile    | | | |
+| es5 class module, many js files       | Es5Example       | | | |
+| es6 class module, many js files       | Es6Example       | | | |
+
+
+#### One function module
 
 #### es5 classes
 
