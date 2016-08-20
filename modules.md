@@ -23,27 +23,83 @@ In this part of the tutorial, we will explore how we can create an X module with
 
 ### Multiple ways of writing Archiejs modules
 
-There are multiple ways of creating archiejs modules. They are listed as below :-
-
-| Module type                           | Name             | Provides             | Consumes             |
-|---------------------------------------|------------------|----------------------|----------------------|
-| One function module, one js file      | SimpleOneFunc    | | | |
-| Single index.js file, one js file     | SimpleOneFile    | | | |
-| es5 class module, many js files       | Es5Example       | | | |
-| es6 class module, many js files       | Es6Example       | | | |
+There are multiple ways of creating archiejs modules. In below example, we will start with a very simple module (which does nothing and is composed in a single function) and move towards more complex examples. This might be lengthy, because its comprihensive. You may not need to read this word by word.
 
 
-#### One function module
+#### One function module - does nothhing
 
 We will create a very simple module which does not provide or consume anything.
 
-modules/doesNothing/index.js
+modules/theModuleName/index.js
 ```
 module.exports = function setup(options, imports) {
-  console.log('doesNothing initialized');
+  console.log('module initialized');
 }
 ```
-modules/doesNothing/package.json
+./app.js
+```
+const archie = require('archiejs');
+const theModules = [ 'modules/theModuleName' ];
+const theDependencyTree = archie.resolveConfig(theModules, __dirname);
+archiejs.createApp(theDependencyTree, (err) => {...});
+```
+
+#### Passing options to modules
+
+Says hello _name_ ; where name is passed via `options`.
+
+modules/theModuleName/index.js
+```
+module.exports = function setup(options, imports) {
+  console.log(`Hello {options.name}`);
+}
+```
+./app.js
+```
+const archie = require('archiejs');
+const theModules = [ {
+  packagePath: 'modules/theModuleName',
+  name: 'Raghu'
+];
+const theDependencyTree = archie.resolveConfig(theModules, __dirname);
+archiejs.createApp(theDependencyTree, (err) => {...});
+```
+
+Outputs, hello Raghu.
+
+### Providing a service for other modules 
+
+We will create a new module - `theTime`. It provides the time for other modules.
+
+modules/theTime/package.json
+```
+{
+  ...
+  plugin: {
+    provides: 'theTimeNow'
+  }
+}
+```
+
+### Injecting other modules into theModule
+
+Lets create a key with the timeNow and 
+
+modules/theModuleName/package.json
+```
+{
+  ...
+  plugin: {
+    consumes: []
+  }
+}
+```
+
+### An es6 example
+
+### 
+
+modules/theModuleName/package.json
 ```
 {
   ...
@@ -53,15 +109,6 @@ modules/doesNothing/package.json
   }
 }
 ```
-./app.js
-```
-const archie = require('archiejs');
-const theModules = [ 'modules/doesNothing' ];
-const theDependencyTree = archie.resolveConfig(theModules);
-archiejs.createApp(theDependencyTree, (err) => {...});
-```
-
-
 
 #### es5 classes
 
