@@ -112,19 +112,22 @@ Next, we can create a module with two `js` files.
 
 ### A module with two javascript files
 
+We may want to spread services across multiple js files. Now, each js file can export a 
+`setup` function. Note, how `file.js` changes.
+
 modules/theTime/package.json
 ```
 {
   ...
   plugin: {
     provides: {
-      'timeServices': 'time.js',
-      'otherServices': 'other.js'
+      'earth.js': [ 'theTimeNow', 'isItLate' ],
+      'space.js': 'theSpaceTimeNow'
     }
   }
 }
 ```
-modules/theTime/time.js
+modules/theTime/earth.js
 ```
 module.exports = function setup(options, imports) {
   return {
@@ -133,11 +136,19 @@ module.exports = function setup(options, imports) {
   }
 }
 ```
-modules/theTime/other.js
+modules/theTime/space.js
 ```
 module.exports = function setup(options, imports) {
+  return {
+    'theSpaceTimeNow': () => 'about five billion years'
+  }
 }
 ```
+
+### Consuming an Archiejs service inside a module
+
+Modules consume services provided by other modules. (Note: sometimes we may 
+confuse module name and the services it provides)
 
 
 ### Injecting other modules into theModule
