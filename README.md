@@ -62,14 +62,21 @@ Create boilerplate code
 yo archiejs project-name
 ```
 
+## Coding in archiejs (modules)
+
+This is a separate topic and covered here [coding in Archiejs](https://github.com/archiejs/archiejs-docs/blob/master/modules.md) in detail. It explains
+different ways of coding archiejs modules and linking (in runtime) them together to build nodejs apps.
+
 
 ## Subtopics
 
-1. [ArchieJs Modules](https://github.com/archiejs/archiejs-docs/blob/master/modules_faq.md)
+1. [ArchieJs Modules FAQ](https://github.com/archiejs/archiejs-docs/blob/master/modules_faq.md)
   1. How are Archiejs modules are different from npm modules?
   2. How to write an Archiejs module?
-  3. What are enhancers and how can we use them?
-2. [Description of repositories](https://github.com/archiejs/archiejs-docs/blob/master/about_repositories.md)
+2. Enhancers
+  1. What are enhancers?
+  2. How can we create our own enhancers?
+3. [Description of repositories](https://github.com/archiejs/archiejs-docs/blob/master/about_repositories.md)
 
 
 ## Roadmap 
