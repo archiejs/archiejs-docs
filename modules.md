@@ -22,6 +22,8 @@ This is a tutorial about creating archiejs modules. The tutorial has below parts
 There are multiple ways of creating archiejs modules. In below example, we will start with a very simple module (which does nothing and is composed in a single function) and move towards more complex examples. This might be lengthy, because its comprihensive. You may not need to read this word by word.
 
 
+### Simple Modules
+
 #### One function module - does nothhing
 
 We will create a very simple module which does not provide or consume anything.
@@ -63,7 +65,7 @@ archiejs.createApp(theDependencyTree, (err) => {...});
 
 Outputs, Hello Raghu.
 
-### Providing a service for other modules 
+#### Providing a service for other modules 
 
 We will create a new module file `time.js` that provides a service `theTimeNow` . The service `theTimeNow` tells the time.
 
@@ -87,7 +89,7 @@ module.exports = function setup(options, imports) {
 ```
 Next, lets add one more service into `time.js`
 
-### A module with two services
+#### A module with two services
 
 modules/theTime/package.json
 ```
@@ -110,10 +112,13 @@ module.exports = function setup(options, imports) {
 ```
 Next, we can create a module with two `js` files.
 
-### A module with two javascript files
 
-We may want to spread services across multiple js files. Now, each js file can export a 
-`setup` function. Note, how `package.json` changes.
+### Complex modules
+
+#### A module with two javascript files
+
+A module can also have many javascript file, each file exports a service in its `setup` function.
+Notice, how `package.json` changes (ie provides becomes a hashmap of `serviceName : fileName.js` pairs).
 
 modules/theTime/package.json
 ```
@@ -121,8 +126,8 @@ modules/theTime/package.json
   ...
   plugin: {
     provides: {
-      'earth.js': [ 'theTimeNow', 'isItLate' ],
-      'space.js': 'theSpaceTimeNow'
+      'earthTime': 'earth.js',
+      'spaceTime': 'space.js'
     }
   }
 }
@@ -145,13 +150,11 @@ module.exports = function setup(options, imports) {
 }
 ```
 
-### Consuming an Archiejs service inside a module
+#### Dependency Injection using the cosumes tag
 
 Modules consume services provided by other modules. (Note: sometimes we may 
 confuse module name and the services it provides)
 
-
-### Injecting other modules into theModule
 
 Lets create a key with the timeNow and 
 
@@ -165,9 +168,9 @@ modules/theModuleName/package.json
 }
 ```
 
-### An es6 example
+### Using es5 and es6 objects as services
 
-### 
+#### es5 objects
 
 modules/theModuleName/package.json
 ```
@@ -180,14 +183,8 @@ modules/theModuleName/package.json
 }
 ```
 
-#### es5 classes
-
-_todo_
-
 #### es6 classes
 
 _todo_ 
 
-#### single index.js file
 
-_todo_
