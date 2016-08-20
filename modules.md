@@ -65,21 +65,83 @@ const theDependencyTree = archie.resolveConfig(theModules, __dirname);
 archiejs.createApp(theDependencyTree, (err) => {...});
 ```
 
-Outputs, hello Raghu.
+Outputs, Hello Raghu.
 
 ### Providing a service for other modules 
 
-We will create a new module - `theTime`. It provides the time for other modules.
+We will create a new module file `time.js` that provides a service `theTimeNow` . The service `theTimeNow` tells the time.
+
+modules/theTime/package.json
+```
+{
+  ...
+  main: 'time.js',
+  plugin: {
+    provides: 'theTimeNow'
+  }
+}
+```
+modules/theTime/time.js
+```
+module.exports = function setup(options, imports) {
+  return {
+    'theTimeNow': () => new Date()  
+  }
+}
+
+Next, lets add one more service into `time.js`
+
+### A module with two services
+
+modules/theTime/package.json
+```
+{
+  ...
+  main: 'time.js',
+  plugin: {
+    provides: [ 'theTimeNow', 'isItLate' ]
+  }
+}
+```
+modules/theTime/time.js
+```
+module.exports = function setup(options, imports) {
+  return {
+    'theTimeNow': () => new Date(),
+    'isItLate': () => new Date().getHours() > 22 
+  }
+}
+
+Next, we can create a module with two `js` files.
+
+### A module with two javascript files
 
 modules/theTime/package.json
 ```
 {
   ...
   plugin: {
-    provides: 'theTimeNow'
+    provides: {
+      'timeServices': 'time.js',
+      'otherServices': 'other.js'
+    }
   }
 }
 ```
+modules/theTime/time.js
+```
+module.exports = function setup(options, imports) {
+  return {
+    'theTimeNow': () => new Date(),
+    'isItLate': () => new Date().getHours() > 22 
+  }
+}
+modules/theTime/other.js
+```
+module.exports = function setup(options, imports) {
+}
+```
+
 
 ### Injecting other modules into theModule
 
