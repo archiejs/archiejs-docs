@@ -64,8 +64,12 @@ yo archiejs project-name
 
 ## Coding in archiejs (modules)
 
-This is a separate topic and covered here [coding in Archiejs](https://github.com/archiejs/archiejs-docs/blob/master/modules.md) in detail. It explains
-different ways of coding archiejs modules and linking (in runtime) them together to build nodejs apps.
+[Coding in Archiejs is explained here in detail](https://github.com/archiejs/archiejs-docs/blob/master/modules.md).
+We cover :-
+
+1. Different ways of coding archiejs modules
+2. Linking (in runtime) them together to build node apps
+3. Unit testing of modules
 
 
 ## Subtopics
