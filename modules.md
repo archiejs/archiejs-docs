@@ -7,11 +7,7 @@ This is a tutorial about creating archiejs modules. The tutorial has below parts
 * Part 3. Explore unit testing of archiejs modules.
 
 
-## Part 1 - Different semantics of Archiejs modules
-
-In this part of the tutorial, we will explore how we can create an X module with provides services X1 and X2. And also consumes a service Y1 (which is provided in another module Y).
-
-### Modules in points
+### Modules semantics in points
 
   * A module is container for one or many services, which the module `provides` to others. 
    * The services modules are are specified in `plugin.provides` key in `package.json`.
@@ -20,6 +16,10 @@ In this part of the tutorial, we will explore how we can create an X module with
   * A number of services inside modules are aggregated together as a list to run as an application.
    * If some service is consumed, but not provided, it will result in appropriate `error` and the application will not run.
 
+
+## Part 1 - Different semantics of Archiejs modules
+
+In this part of the tutorial, we will explore how we can create an X module with provides services X1 and X2. And also consumes a service Y1 (which is provided in another module Y).
 
 ### Multiple ways of writing Archiejs modules
 
@@ -34,6 +34,33 @@ There are multiple ways of creating archiejs modules. They are listed as below :
 
 
 #### One function module
+
+We will create a very simple module which does not provide or consume anything.
+
+```modules/doesNothing/index.js
+module.exports = function setup(options, imports) {
+  console.log('doesNothing initialized');
+}
+```
+
+```modules/doesNothing/package.json
+{
+  ...
+  plugin: {
+    provides: [],
+    consumes: []
+  }
+}
+```
+
+```./app.js
+const archie = require('archiejs');
+const theModules = [ 'modules/doesNothing' ];
+const theDependencyTree = archie.resolveConfig(theModules);
+archiejs.createApp(theDependencyTree, (err) => {...});
+```
+
+
 
 #### es5 classes
 
