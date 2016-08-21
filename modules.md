@@ -153,20 +153,28 @@ module.exports = function setup(options, imports) {
 #### Dependency Injection using the cosumes tag
 
 Modules consume services provided by other modules. (Note: sometimes we may 
-confuse module name and the services it provides)
+confuse module name and the services it provides, these are different. It is the 
+individual services that get injected, not modules as a whole).
 
-
-Lets create a key with the timeNow and 
+In above 'time' example, lets suppose that, the output depends on 'locationService'.
 
 modules/theModuleName/package.json
 ```
 {
   ...
   plugin: {
-    consumes: []
+    consumes: [ 'locationService' ],
+    provides: {
+      'earthTime': 'earth.js',
+      'spaceTime': 'space.js'
+    }
   }
 }
 ```
+
+The service 'locationService' above, must have been present in `provides` tag of some
+module.
+
 
 ### Using es5 and es6 objects as services
 
