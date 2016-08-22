@@ -26,7 +26,8 @@ There are multiple ways of creating archiejs modules. In below example, we will 
 
 #### One function module - does nothhing
 
-We will create a very simple module which does not provide or consume anything.
+We will create a very simple module which does not provide or consume any service (can be
+a function, an object or even a primitive).
 
 modules/theModuleName/index.js
 ```
@@ -152,13 +153,11 @@ module.exports = function setup(options, imports) {
 
 #### Dependency Injection using the cosumes tag
 
-Modules consume services provided by other modules. (Note: sometimes we may 
-confuse module name and the services it provides, these are different. It is the 
-individual services that get injected, not modules as a whole).
+Modules consume services provided by other modules. 
 
 In above 'time' example, lets suppose that, the output depends on 'locationService'.
 
-modules/theModuleName/package.json
+modules/theTimeModule/package.json
 ```
 {
   ...
@@ -172,8 +171,41 @@ modules/theModuleName/package.json
 }
 ```
 
-The service 'locationService' above, must have been present in `provides` tag of some
-module.
+In above, `earth.js` and `space.js` will have a function `setup` function each - which returns
+`{ earthTime }` and `{ spaceTime }` services respectively (like above examples). 
+
+Another module, say with a name `theLocationModule`, provides a service known as `locationService`.
+(Below example uses a format where the code will be located in `index.js`).
+
+modules/theLocationModule/package.json
+```
+{
+  ...
+  plugin: {
+    consumes: [],
+    provides: [ 'theLocationService ' ]
+  }
+}
+```
+
+Now we have two modules (with names) `theTimeModule` and `theLocationModule`. They form an archiejs
+app, by using below APIs :-
+
+./app.js
+```
+const archie = require('archie');
+const theAppConfig = [
+  'theTimeModule',
+  'theLocationModule'
+];
+const deptree = archie.resolveConfig(theAppConfig', './');
+archie.createApp(deptree, (err, app) => { // started });
+```
+
+For now, this gets our app running. We can also access the loaded services from `app.services`.
+
+We will explore passing `options` to setup functions in the module via `theAppConfig` in
+*Part 2* of this tutorial.
 
 
 ### Using es5 and es6 objects as services
