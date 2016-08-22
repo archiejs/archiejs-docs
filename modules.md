@@ -2,9 +2,9 @@
 
 This is a tutorial about creating archiejs modules. The tutorial has below parts, where we will :-
 
-* Part 1. Explore creating a module using different semantics.
-* Part 2. Describle linking together the modules to create an application.
-* Part 3. Explore unit testing of archiejs modules.
+* Part 1. Creating modules - different semantics of archiejs modules
+* Part 2. Starting the application - loading all archiejs modules
+* Part 3. TDD - Explore unit testing of archiejs modules
 
 
 ### Modules semantics in points
@@ -17,7 +17,7 @@ This is a tutorial about creating archiejs modules. The tutorial has below parts
    * If some service is consumed, but not provided, it will result in appropriate `error` and the application will not run.
 
 
-## Part 1 - Different semantics of Archiejs modules
+## Part 1 - Creating modules - Different semantics of Archiejs modules
 
 There are multiple ways of creating archiejs modules. In below example, we will start with a very simple module (which does nothing and is composed in a single function) and move towards more complex examples. This might be lengthy, because its comprihensive. You may not need to read this word by word.
 
@@ -228,3 +228,16 @@ modules/theModuleName/package.json
 _todo_ 
 
 
+#### using a promise in service setup function
+
+_todo_ 
+
+
+### Part 2 - Starting the application - loading all archiejs modules
+
+_todo_ 
+
+
+### Part 3 - TDD - Explore unit testing of archiejs modules
+
+_todo_ 
