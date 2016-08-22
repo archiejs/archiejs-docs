@@ -121,7 +121,7 @@ Next, we can create a module with two `js` files.
 A module can also have many javascript file, each file exports a service in its `setup` function.
 Notice, how `package.json` changes (ie provides becomes a hashmap of `serviceName : fileName.js` pairs).
 
-modules/theTime/package.json
+modules/theTimeModule/package.json
 ```
 {
   ...
@@ -133,7 +133,7 @@ modules/theTime/package.json
   }
 }
 ```
-modules/theTime/earth.js
+modules/theTimeModule/earth.js
 ```
 module.exports = function setup(options, imports) {
   return {
@@ -142,7 +142,7 @@ module.exports = function setup(options, imports) {
   }
 }
 ```
-modules/theTime/space.js
+modules/theTimeModule/space.js
 ```
 module.exports = function setup(options, imports) {
   return {
@@ -155,7 +155,9 @@ module.exports = function setup(options, imports) {
 
 Modules consume services provided by other modules. 
 
-In above 'time' example, lets suppose that, the output depends on 'locationService'.
+The time depends on the location of person. Therefore, `theTimeModule` now consumes a
+service `locationService`; which is provided by `theLocationModule`. (Notice, module names
+are different from the services they provide. It can be confusing for some)
 
 modules/theTimeModule/package.json
 ```
@@ -183,7 +185,7 @@ modules/theLocationModule/package.json
   ...
   plugin: {
     consumes: [],
-    provides: [ 'theLocationService ' ]
+    provides: [ 'locationService ' ]
   }
 }
 ```
@@ -202,7 +204,10 @@ const deptree = archie.resolveConfig(theAppConfig', './');
 archie.createApp(deptree, (err, app) => { // started });
 ```
 
-For now, this gets our app running. We can also access the loaded services from `app.services`.
+For now, this gets our app running. The modules will be loaded in order of dependency injection -
+(1) theLocationModule (2) theTimeModule. Their placement of theAppConfig is not relevant.
+
+Also to access the loaded services from callback in createApp, we can use `app.services`.
 
 We will explore passing `options` to setup functions in the module via `theAppConfig` in
 *Part 2* of this tutorial.
