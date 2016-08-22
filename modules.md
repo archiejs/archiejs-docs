@@ -172,7 +172,7 @@ modules/theTimeModule/package.json
 ```
 
 In above, `earth.js` and `space.js` will have a function `setup` function each - which returns
-`{ earthTime }` and `{ spaceTime }` services respectively (like above examples). 
+`{ earthTime }` and `{ spaceTime }` services respectively (like in some previous examples). 
 
 Another module, say with a name `theLocationModule`, provides a service known as `locationService`.
 (Below example uses a format where the code will be located in `index.js`).
