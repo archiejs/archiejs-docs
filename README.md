@@ -44,7 +44,7 @@ You can find examples for a [module directory](https://github.com/archiejs/demo-
   A demo application which runs on terminal and scans the reciepts (using google cloud vision APIs). You could build an IoT device with a camera and modify this demo app to give it capabilities of a scanner.
 
 2. [Ticket booking microservice](https://github.com/archiejs/demo-webapp-mongo-redis-ticket_booking) 
-  A demo application which demonstrates using `enhancers` (see below) to convert `booking` module into redis pub-sub microservice.
+  A demo web application, which also demonstrates using `enhancers` (or decorators) to convert a module (named: `booking`) into a microservice (with redis pub-sub wrappers).
 
 
 ## Boilerplate
