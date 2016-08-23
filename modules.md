@@ -261,6 +261,8 @@ class ExampleClass {
     // add code
   }
 }
+
+module.exports = ExampleClass;
 ```
 
 #### using a promise in service setup function
