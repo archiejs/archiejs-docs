@@ -5,6 +5,7 @@ This is a tutorial about creating archiejs modules. The tutorial has below parts
 * Part 1. Creating modules - different semantics of archiejs modules
 * Part 2. Starting the application - loading all archiejs modules
 * Part 3. TDD - Explore unit testing of archiejs modules
+* Part 4. Version control - Version control of archiejs modules
 
 
 ### Modules semantics in points
@@ -213,30 +214,67 @@ We will explore passing `options` to setup functions in the module via `theAppCo
 *Part 2* of this tutorial.
 
 
-### Using es5 and es6 objects as services
+### Using es5 and es6 singleton objects as services
 
-#### es5 objects
+When using objects as services, we are required to use below format in `package.json` provides.
 
-modules/theModuleName/package.json
+theModuleName/package.json
 ```
 {
   ...
   plugin: {
-    provides: [],
-    consumes: []
+    provides: {
+      'service1': 'file1.js',
+      'service2': 'file2.js'
+    },
+    consumes: [ ... ]
   }
 }
 ```
 
-#### es6 classes
+Where `file1.js` and `file2.js` are javascript class definitions. 
 
-_todo_ 
+The `setup` functions, dont return service objects (like above examples). Archiejs
+instantiates these classes into singleton objects and injects them into other modules
+that consume these services.
 
+
+file1.js
+```
+module.exports = ExampleClass = function(options, imports) {
+   // constructor stuff
+   this.myVariable = options.passedValue;
+}
+
+ExampleClass.prototype.doSomething = function() { ... }
+```
+
+or we could use es6 class,
+
+```
+class ExampleClass {
+  constructor(options, imports) {
+    // add code
+  }
+  
+  doSomething() {
+    // add code
+  }
+}
+```
 
 #### using a promise in service setup function
 
-_todo_ 
+Sometimes, we may want to do async operations in the constructor. 
+In this case, we have to return a `promise` which resolves into
+the service. 
 
+_todo provide example_
+
+
+#### Injecting a class, instead of a singleton object
+
+_todo_
 
 ### Part 2 - Starting the application - loading all archiejs modules
 
@@ -246,3 +284,7 @@ _todo_
 ### Part 3 - TDD - Explore unit testing of archiejs modules
 
 _todo_ 
+
+### Part 4 - Version control - Version control of archiejs modules
+
+_todo_
