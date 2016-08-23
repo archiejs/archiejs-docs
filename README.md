@@ -70,6 +70,7 @@ We cover :-
 1. Different ways of coding archiejs modules
 2. Linking (in runtime) them together to build node apps
 3. Unit testing of modules
+4. Version control of modules
 
 
 ## Subtopics
