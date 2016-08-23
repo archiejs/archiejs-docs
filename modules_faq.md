@@ -50,9 +50,7 @@ _You will also need to read the next Q&A, `How to club archiejs modules together
   },
   ```
     
-3. In file `service1.js`;
-    
-  we can use es5 classes
+3. In file `service1.js`; we can use es5 classes
     
   ```
   module.exports = function setup(configs, imports) {
@@ -62,23 +60,9 @@ _You will also need to read the next Q&A, `How to club archiejs modules together
   setup.prototype.doSomething = function() {}
   ```
     
-  or es6 classes
-    
-  ```
-  class Service1 {
-    constructor(configs, imports) {
-      // return a promise (that returns this/object) or a simple function
-    }
-     
-    doSomething() {}
-  }
-     
-  module.exports = Service1;
-  ```
-    
 Now we are ready to consume `Service1` and `Service2`, as we named them under `plugin.provides`.
 
-Other semantics can be used to define module services can be found with the [testcases](https://github.com/archiejs/archiejs/tree/master/test).
+You can also use es6 classes, promises, version control, etc (read in detail about [archiejs modules](https://github.com/archiejs/archiejs-docs/blob/master/modules.md)).
 
 
 ### Q. How to club archiejs modules together in an application?
