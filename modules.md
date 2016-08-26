@@ -271,7 +271,34 @@ Sometimes, we may want to do async operations in the constructor.
 In this case, we have to return a `promise` which resolves into
 the service. 
 
-_todo provide example_
+The below example, shows such a setup function where some functions in 
+the module are exported as services (`serviceA` and `serviceB`).
+
+```
+module.exports = function setup(options, imports) {
+  return new Promise(resolvefn)
+    .then(anotherfn)
+    .then(() => {
+      serviceA: serviceA_Fn,
+      serviceB: serviceB_Fn
+    });
+}
+```
+
+Suppose we were providing an es5 object (ie. `this`) - this was covered in the 
+section before. The solution is that last `then` of the promise, returns `this`.
+
+```
+module.exports = function setup(options, imports) {
+  const obj = this; // ref to the service-object
+  return new Promise(resolvefn)
+    .then(anotherfn)
+    .then(() => obj);
+}
+```
+
+In both the cases, archiejs receives the service object from the final `then`
+statement in the promise.
 
 
 #### Injecting a class, instead of a singleton object
