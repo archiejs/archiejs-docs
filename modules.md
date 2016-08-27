@@ -358,7 +358,7 @@ Archie.createApp(servicesTree, function(err, archie) {
 
 There we hava a running archiejs application.
 
-For a better example, refer (our demo appliaction)[https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner] (see the files (deptree.js)[https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/blob/master/deptree.js] and (app.js)[https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/blob/master/app.js]).
+For a better example, refer [our demo appliaction](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner) (see the files [deptree.js](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/blob/master/deptree.js) and [app.js](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/blob/master/app.js)).
 
 
 ### Part 3 - TDD - Explore unit testing of archiejs modules
