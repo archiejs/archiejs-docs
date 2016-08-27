@@ -1,5 +1,7 @@
 # ArchieJs Modules - FAQ
 
+This document has some redundency (wrt other documents) and will try to be very brief. 
+
 ## Q&A about modules
 
 ### Q. How are Archiejs modules are different from npm modules?
