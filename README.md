@@ -78,7 +78,7 @@ We cover :-
 1. [ArchieJs Modules FAQ](https://github.com/archiejs/archiejs-docs/blob/master/modules_faq.md)
   1. How are Archiejs modules are different from npm modules?
   2. A short gist on how to code an Archiejs module?
-2. Enhancers
+2. Enhancers (_todo_)
   1. What are enhancers?
   2. How can we create our own enhancers?
 3. [Description of repositories](https://github.com/archiejs/archiejs-docs/blob/master/about_repositories.md)
