@@ -329,6 +329,8 @@ instance of `moduleA`, name it `ServiceAClass`, before injecting it in consumers
 
 ### Part 2 - Starting the application - loading all archiejs modules
 
+_(is duplicate of content in module_faq.md...)_
+
 An application in archiejs is a sum of a number of services (services are provided 
 and consumed by modules). We make a list of all our modules and pass them to the
 archiejs library - to make instances of modules and inject modules - thus instantiate
@@ -358,13 +360,57 @@ Archie.createApp(servicesTree, function(err, archie) {
 
 There we hava a running archiejs application.
 
+NOTE: the second argument in resolveConfig (above) is the root path, relative to which all packagePath's are loaded.
+
 For a better example, refer [our demo appliaction](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner) (see the files [deptree.js](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/blob/master/deptree.js) and [app.js](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/blob/master/app.js)).
+
 
 
 ### Part 3 - TDD - Explore unit testing of archiejs modules
 
-_todo_ 
+_(is duplicate of content in module_faq.md...)_
+
+Each of the module should be sufficiently isolated from other modules and have their own testcase folder. 
+
+For example, see `test` folder in the [example app](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/tree/master/modules/googledrive).
+
+Also see the file [`test/archie-unit.js`](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/blob/master/modules/googledrive/test/archie-unit.js) which loads the dependencies for testcases.
+
 
 ### Part 4 - Version control - Version control of archiejs modules
 
-_todo_
+_(is duplicate of content in module_faq.md...)_
+
+Version control is specially important if we plan to use our modules as microservices. Here is one way
+of supporting different versions of a module.
+
+package.json extract the provider module (provides v1 and v2 of someService)
+```
+   provides: {
+     v1: {
+       someService: './v1/file.js'
+     },
+     v2: {
+       someService: './v2/file.js'
+     }
+   }
+```
+
+package.json consumes v1 of someService
+```
+    consumes: [ 'v1.someService' ]
+```
+
+Other versions can be consumed in the same manner. Thus we have implemented a version control
+using archiejs modules.
+
+Also, you might find the [kue enhancer](https://github.com/archiejs/archiejs-kue-enhancer) interesting, if you want to
+write microservices with archiejs.
+
+
+### Conclusion
+
+Archiejs modules are a bare minimum delta over npm modules.
+
+We have learnt that archiejs modules can be written in many ways, depending on the
+complexity of the module. They can be unit tested and versioned very conveniently.
