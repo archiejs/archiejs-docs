@@ -329,7 +329,36 @@ instance of `moduleA`, name it `ServiceAClass`, before injecting it in consumers
 
 ### Part 2 - Starting the application - loading all archiejs modules
 
-_todo_ 
+An application in archiejs is a sum of a number of services (services are provided 
+and consumed by modules). We make a list of all our modules and pass them to the
+archiejs library - to make instances of modules and inject modules - thus instantiate
+our application. Below is an example of such a list,
+
+```
+var theAppModules = [
+  {
+    packagePath: 'modules/mymodule1',
+    ... config options ...
+  },
+  'modules/mymodule2'
+]
+```
+
+Next, we the theAppModules to archiejs for creating the dependency tree.
+
+```
+var servicesTree = Archie.resolveConfig(theAppModules, process.cwd()); 
+Archie.createApp(servicesTree, function(err, archie) {
+    if(err){
+        throw err;
+    }
+    // ready
+});
+```
+
+There we hava a running archiejs application.
+
+For a better example, refer (our demo appliaction)[https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner] (see the files (deptree.js)[https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/blob/master/deptree.js] and (app.js)[https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/blob/master/app.js]).
 
 
 ### Part 3 - TDD - Explore unit testing of archiejs modules
