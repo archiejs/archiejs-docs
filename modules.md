@@ -303,7 +303,26 @@ statement in the promise.
 
 #### Injecting a class, instead of a singleton object
 
-_todo_
+By default, when a module is loaded in archiejs using es5 or es6 format; archiejs
+assumes it to be a class and creates a singleton with it. This can be a problem
+sometimes (for example, when we want to inject mongoose schemas).
+
+We dont want to instantiate before injecting a class with es5/es6 format of `provides`
+tag, we can add an `__instantiateBeforeInjection: false` setting to the `plugin` in `package.json`.
+
+package.json (excerpt)
+```
+  plugin: {
+    __instantiateBeforeInjection: false,
+    provides: {
+      ServiceAClass: 'moduleA.js'
+    },
+    consumes: [ ... ]
+  }
+```
+
+If we had not added `__instantiateBeforeInjection: false`, archiejs would have created an
+instance before injecting the same at modules where `ServiceAClass` is consumed.
 
 ### Part 2 - Starting the application - loading all archiejs modules
 
