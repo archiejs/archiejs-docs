@@ -11,10 +11,11 @@ This is a tutorial about creating archiejs modules. The tutorial has below parts
 ### Modules semantics in points
 
   * A module is container for one or many services, which the module `provides` to others. 
-   * The services modules are are specified in `plugin.provides` key in `package.json`.
-   * A module with only one service to provide (and none to consume), can be just an `index.js` file with a `setup` function.
-   * A module can also consume other services by specifing them in `consumes` tag in `package.json`.
-  * A number of services inside modules are aggregated together as a list to run as an application.
+   * The services modules are are specified in `plugin.provides` key (in `package.json`).
+   * A module with only one service to provide (and none to consume), can be just an `index.js` file with an `export`'ed function (we usually name `setup`).
+   * A module can also consume other services by specifing them in `consumes` tag (in `package.json`).
+  * Given a number of services, archiejs will orchestrate their initialization sequence as per the dependeny tree.
+   * On initialization completion (success/failure), a callback function is initiated. 
    * If some service is consumed, but not provided, it will result in appropriate `error` and the application will not run.
 
 
