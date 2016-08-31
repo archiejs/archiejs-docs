@@ -11,9 +11,9 @@ This is a tutorial about creating archiejs modules. The tutorial has below parts
 ### Modules semantics in points
 
   * A module is container for one or many services, which the module `provides` to others. 
-   * The services modules are are specified in `plugin.provides` key (in `package.json`).
+   * The services modules are are specified in `plugin.provides` key (in package.json).
    * A module with only one service to provide (and none to consume), can be just an `index.js` file with an `export`'ed function (we usually name `setup`).
-   * A module can also consume other services by specifing them in `consumes` tag (in `package.json`).
+   * A module can also consume other services by specifing them in `consumes` tag (in package.json).
    * A service is usually a function or an object; but can also be a primitive.
   * Given a number of services, archiejs will orchestrate their initialization sequence as per the dependeny tree.
    * On initialization completion (success/failure), a callback function is initiated. 
@@ -128,10 +128,16 @@ Next, we can create a module with two `js` files.
 
 ### Complex modules
 
+There are times, when we would like to split our module logic into different
+javascript files (or maybe just have different versions of services in different 
+files).
+
+When different js files export different services - we use a different format 
+in `plugin.provides` tag (in package.json). 
+
 #### A module with two javascript files
 
-A module can also have many javascript file, each file exports a service in its `setup` function.
-Notice, how `package.json` changes (ie provides becomes a hashmap of `serviceName : fileName.js` pairs).
+The provides becomes a hashmap of `serviceName : fileName.js` pairs.
 
 modules/theTimeModule/package.json
 ```
@@ -165,13 +171,13 @@ module.exports = function setup(options, imports) {
 
 #### Dependency Injection using the cosumes tag
 
-Modules consume services provided by other modules. 
+So far, we have only explored different ways of providing services. We
+also must know, how to `consume` services provided by other modules. 
 
-The time depends on the location of person. Therefore, `theTimeModule` now consumes a
-service `locationService`; which is provided by `theLocationModule`. (Notice, module names
-are different from the services they provide. It can be confusing for some)
+In normal nodejs code, we use `require` command in the code. In archiejs, we specify the 
+services to be consumed in package.json .
 
-modules/theTimeModule/package.json
+modules/theTimeModule/package.json (see line number 4)
 ```
 {
   ...
@@ -185,10 +191,14 @@ modules/theTimeModule/package.json
 }
 ```
 
-In above, `earth.js` and `space.js` will have a function `setup` function each - which returns
+NOTE: In above example, the time depends on the location of person. Therefore, `theTimeModule` now consumes a
+service `locationService`; which is provided by `theLocationModule`. (Notice, module names
+are different from the services they provide. It can be confusing for some)
+
+NOTE (Not expanded into code): Also in above, `earth.js` and `space.js` will have a function `setup` function each - which *returns*
 `{ earthTime }` and `{ spaceTime }` services respectively (like in some previous examples). 
 
-Another module, say with a name `theLocationModule`, provides a service known as `locationService`.
+The injected module, say has a name `theLocationModule` and provides a service known as `locationService`.
 (Below example uses a format where the code will be located in `index.js`).
 
 modules/theLocationModule/package.json
@@ -202,8 +212,8 @@ modules/theLocationModule/package.json
 }
 ```
 
-Now we have two modules (with names) `theTimeModule` and `theLocationModule`. They form an archiejs
-app, by using below APIs :-
+Now we have two modules (with names) `theTimeModule` and `theLocationModule`. They can form an archiejs
+app together.
 
 ./app.js
 ```
