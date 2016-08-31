@@ -14,6 +14,7 @@ This is a tutorial about creating archiejs modules. The tutorial has below parts
    * The services modules are are specified in `plugin.provides` key (in `package.json`).
    * A module with only one service to provide (and none to consume), can be just an `index.js` file with an `export`'ed function (we usually name `setup`).
    * A module can also consume other services by specifing them in `consumes` tag (in `package.json`).
+   * A service is usually a function or an object; but can also be a primitive.
   * Given a number of services, archiejs will orchestrate their initialization sequence as per the dependeny tree.
    * On initialization completion (success/failure), a callback function is initiated. 
    * If some service is consumed, but not provided, it will result in appropriate `error` and the application will not run.
@@ -28,8 +29,7 @@ There are multiple ways of creating archiejs modules. In below example, we will 
 
 #### One function module - does nothhing
 
-We will create a very simple module which does not provide or consume any service (can be
-a function, an object or even a primitive).
+We will create a very simple module which does not provide or consume any service.
 
 modules/theModuleName/index.js
 ```
@@ -45,6 +45,9 @@ const theDependencyTree = archie.resolveConfig(theModules, __dirname);
 archiejs.createApp(theDependencyTree, (err) => {...});
 ```
 
+When we run `node app.js`, the (1) setup function is called and 
+followed by (2) the callback function in `createApp`.
+
 #### Passing options to modules
 
 Says hello _name_ ; where name is passed via `options`.
@@ -55,7 +58,7 @@ module.exports = function setup(options, imports) {
   console.log(`Hello {options.name}`);
 }
 ```
-./app.js
+./app.js (line number 4 added)
 ```
 const archie = require('archiejs');
 const theModules = [ {
@@ -68,9 +71,16 @@ archiejs.createApp(theDependencyTree, (err) => {...});
 
 Outputs, Hello Raghu.
 
+In examples examples so far, our module was not providing any services. We
+will now make a module which will `provide` a service. Again, there are multiple
+formats for this and we will start with a simple one.
+
 #### Providing a service for other modules 
 
-We will create a new module file `time.js` that provides a service `theTimeNow` . The service `theTimeNow` tells the time.
+We will create a new module file `time.js` that provides a 
+service `theTimeNow` . The service `theTimeNow` tells the time. Note,
+we are no longer using the default name - `index.js`, for the main
+file.
 
 modules/theTime/package.json
 ```
