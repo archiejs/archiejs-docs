@@ -1,6 +1,8 @@
 # Coding with Archiejs
 
-This is a tutorial about creating archiejs modules. The tutorial has below parts, where we will :-
+This is a very detailed tutorial, that also covers various lesser techniques to code archiejs modules.
+
+The tutorial has below parts, where we will :-
 
 * Part 1. Creating modules - different semantics of archiejs modules
 * Part 2. Starting the application - loading all archiejs modules
@@ -22,12 +24,23 @@ This is a tutorial about creating archiejs modules. The tutorial has below parts
 
 ## Part 1 - Creating modules - Different semantics of Archiejs modules
 
-There are multiple ways of creating archiejs modules. In below example, we will start with a very simple module (which does nothing and is composed in a single function) and move towards more complex examples. This might be lengthy, because its comprihensive. You may not need to read this word by word.
+There are multiple ways of creating archiejs modules. In below example, we will start with a very simple module (which does nothing and is composed in a single function) and move towards more complex examples. This is lengthy because its comprihensive. You may not need to read this word by word.
 
+What have we covered :-
+
+- A module setup function is its constructor
+- Receiving config options in setup function
+- Providing a single service 
+- Providing multiple services
+- A module with services in different js files
+- Using consumes tag for injecting dependencies
+- Services written as es5 and es6 objects
+- Using promises in setup functions
+- Injecting a class, instead of a singleton object
 
 ### Simple Modules
 
-#### One function module - does nothhing
+#### A module setup function is its constructor
 
 We will create a very simple module which does not provide or consume any service.
 
@@ -48,7 +61,7 @@ archiejs.createApp(theDependencyTree, (err) => {...});
 When we run `node app.js`, the (1) setup function is called and 
 followed by (2) the callback function in `createApp`.
 
-#### Passing options to modules
+#### Receiving config options in module setup function
 
 Says hello _name_ ; where name is passed via `options`.
 
@@ -75,7 +88,7 @@ In examples examples so far, our module was not providing any services. We
 will now make a module which will `provide` a service. Again, there are multiple
 formats for this and we will start with a simple one.
 
-#### Providing a service for other modules 
+#### Providing a single service
 
 We will create a new module file `time.js` that provides a 
 service `theTimeNow` . The service `theTimeNow` tells the time. Note,
@@ -102,7 +115,7 @@ module.exports = function setup(options, imports) {
 ```
 Next, lets add one more service into `time.js`
 
-#### A module with two services
+#### Providing multiple services
 
 modules/theTime/package.json
 ```
@@ -135,7 +148,7 @@ files).
 When different js files export different services - we use a different format 
 in `plugin.provides` tag (in package.json). 
 
-#### A module with two javascript files
+#### A module with services in different js files
 
 The provides becomes a hashmap of `serviceName : fileName.js` pairs.
 
@@ -169,7 +182,7 @@ module.exports = function setup(options, imports) {
 }
 ```
 
-#### Dependency Injection using the cosumes tag
+#### Using consumes tag for injecting dependencies
 
 So far, we have only explored different ways of providing services. We
 also must know, how to `consume` services provided by other modules. 
@@ -235,7 +248,7 @@ We will explore passing `options` to setup functions in the module via `theAppCo
 *Part 2* of this tutorial.
 
 
-### Using es5 and es6 singleton objects as services
+### Services written as es5 and es6 objects
 
 When using objects as services, we are required to use below format in `package.json` provides.
 
@@ -286,7 +299,7 @@ class ExampleClass {
 module.exports = ExampleClass;
 ```
 
-#### using a promise in service setup function
+#### Using promises in setup functions
 
 Sometimes, we may want to do async operations in the constructor. 
 In this case, we have to return a `promise` which resolves into
