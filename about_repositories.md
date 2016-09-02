@@ -6,7 +6,7 @@ The archiejs project currently has about 7 repositories (excluding this one). Be
 
 1.  [Demo desktop app - basic](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner)
     
-    NOTE: I have attached a file with my google credentials (and private key) to the mail; so that you dont have to go into the trouble of creating your own to try the project (i will keep them alive for next few days).
+    A commandline app for converting scanned reciepts into text - using google cloud services. NOTE: setting up permissions on GCM should take 30 mins (or so) if you follow the steps.
 
 2. [Demo web app - microservices](https://github.com/archiejs/demo-webapp-mongo-redis-ticket_booking)
     
