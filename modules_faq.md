@@ -130,8 +130,8 @@ We would be writing more about `enhancers` in future.
 
 * Modules are containers for services it `provides`.
 * Modules are dependent on services it `consumes`.
-* To create an app, all its constituent modules are specied in an array of constituting modules.
-* The above array is consumed by Archiejs api `resolveConfig`, into a dependency tree.
+* To create an app, all its constituent modules are first specied in an array.
+* The above array is consumed by Archiejs api `resolveConfig` and converted into a dependency tree.
 * The dependency tree returned by resolveConfig is used to create an app with `createApp`
  
 
