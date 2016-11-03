@@ -23,7 +23,7 @@ project
   .           |
   .           ...  
   .   
-  +-- dependency tree (to create create the app)
+  +-- dependency tree (to create app runtime)
 ```
 
 you should read about Archiejs. This structure or architecture is also very popular in Java world.
