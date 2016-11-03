@@ -23,7 +23,7 @@ project
   .           |
   .           ...  
   .   
-  +-- dependency tree
+  +-- dependency tree (in json file)
 ```
 
 you should read about Archiejs. This structure or architecture is also very popular in Java world.
