@@ -1,8 +1,15 @@
 # ArchieJS - a dependency injection framework
 
-ArchieJS is a dependency injection framework in NodeJS. It allows breaking up the code into modules and enforces developers to write code as a sum of isolated services. 
+Archiejs is a nodejs dependency injection framework. Its unique because your it allows breaking application logic into independent loosely coupled modules. The same also greatly increases reuse of modules across similar types of projects/sub-projects.
 
-The modules in ArchieJS are very similar to NPM modules, except that a thin wrapper gives them some lifecycle events (such as initialization or termination) and they are injected into each other automatically (without a need for an explicit require). 
+These modules are different from npm modules (actually are a thin layer of logic above npm's); one - they have a lifecycle (initialization and termination), and two - form dependency trees from an external JSON/JS file. These are more similar to npm modules that have peerDependencies specified between them. Also archiejs modules are also different from npm modules in below respects :-
+
+(1) dependency tree of modules resides outside of the module code - gives a similar appearance as a SBT build system file in java (for example), 
+(2) configuration management is also a part of the framework, 
+and 
+(3) all this makes it easier to assemble modules for writing comprehensive testcases (or mocking entire modules).
+
+That said, when it comes to code, archiejs modules dont contain any proprietary APIs for registration or setup. All they need is an entry point or a setup function - where from they are injected into each other (without need for an explicit require).
 
 
 ## History
