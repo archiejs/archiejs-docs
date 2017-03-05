@@ -56,6 +56,8 @@ You can find examples for a [module directory](https://github.com/archiejs/demo-
 
 ## Boilerplate
 
+(Untested for a while - let me know if its broken. Mail in footer)
+
 Install archiejs cli
 
 ```
