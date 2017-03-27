@@ -24,11 +24,11 @@ _You will also need to read the next Q&A, `How to club archiejs modules together
 
 1. Create a directory for your module 
     
-  ```
-  $ mkdir -p modules/mymodule
-  $ cd modules/mymodule
-  $ npm init
-  $ touch service1.js service2.js
+    ```
+    $ mkdir -p modules/mymodule
+    $ cd modules/mymodule
+    $ npm init
+    $ touch service1.js service2.js
     ```
     
 2. Change the contents of `package.json` as follows. 
@@ -38,8 +38,7 @@ _You will also need to read the next Q&A, `How to club archiejs modules together
       - main: 'index.js',
   
   Replace with
-  
-  ```
+    
       plugin: {
          provides: {
             Service_1: 'service1.js',
@@ -50,17 +49,14 @@ _You will also need to read the next Q&A, `How to club archiejs modules together
             'Optional_Another_Service_We_Consume'
          ]
       },
-  ```
-    
+  
 3. In file `service1.js`; we can use es5 classes
     
-  ```
-  module.exports = function setup(configs, imports) {
-    // return a promise (that returns this/object) or a simple function
-  }
+      module.exports = function setup(configs, imports) {
+        // return a promise (that returns this/object) or a simple function
+      }
     
-  setup.prototype.doSomething = function() {}
-  ```
+      setup.prototype.doSomething = function() {}
     
 Now we are ready to consume `Service1` and `Service2`, as we named them under `plugin.provides`.
 
@@ -75,7 +71,6 @@ For a working example of modules making an app, see [line 29 ie. `exports.app` h
 
 In below example, we domonstrate two ways to link a module into the dependency tree - a long form one (with `config` data) and a short form one (just the module path).
 
-```
     var theAppModules = [
       {
         packagePath: 'modules/mymodule1',
@@ -83,11 +78,9 @@ In below example, we domonstrate two ways to link a module into the dependency t
       },
       'modules/mymodule2'
     ]
-```
 
 Next, pass the `theAppModules` to archiejs for creating the dependency tree ([see line 17 here](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/blob/master/app.js)).
 
-```
     var servicesTree = Archie.resolveConfig(theAppModules, process.cwd()); 
     Archie.createApp(servicesTree, function(err, archie) {
         if(err){
@@ -95,7 +88,6 @@ Next, pass the `theAppModules` to archiejs for creating the dependency tree ([se
         }
         // ready
     });
-```
 
 NOTE: the second argument in resolveConfig (above) is the root path, relative to which all packagePath's are loaded.
 
