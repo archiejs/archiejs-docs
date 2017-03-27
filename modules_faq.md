@@ -35,21 +35,21 @@ _You will also need to read the next Q&A, `How to club archiejs modules together
 
   Remove
   
-  ~~main: 'index.js',~~
+      - main: 'index.js',
   
   Replace with
   
   ```
-  plugin: {
-     provides: {
-        Service_1: 'service1.js',
-        Service_2: 'service2.js'
-     },
-     consumes: [
-        'Optional_Some_Service_We_Consume',
-        'Optional_Another_Service_We_Consume'
-     ]
-  },
+      plugin: {
+         provides: {
+            Service_1: 'service1.js',
+            Service_2: 'service2.js'
+         },
+         consumes: [
+            'Optional_Some_Service_We_Consume',
+            'Optional_Another_Service_We_Consume'
+         ]
+      },
   ```
     
 3. In file `service1.js`; we can use es5 classes
@@ -76,25 +76,25 @@ For a working example of modules making an app, see [line 29 ie. `exports.app` h
 In below example, we domonstrate two ways to link a module into the dependency tree - a long form one (with `config` data) and a short form one (just the module path).
 
 ```
-var theAppModules = [
-  {
-    packagePath: 'modules/mymodule1',
-    ... config options ...
-  },
-  'modules/mymodule2'
-]
+    var theAppModules = [
+      {
+        packagePath: 'modules/mymodule1',
+        ... config options ...
+      },
+      'modules/mymodule2'
+    ]
 ```
 
 Next, pass the `theAppModules` to archiejs for creating the dependency tree ([see line 17 here](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/blob/master/app.js)).
 
 ```
-var servicesTree = Archie.resolveConfig(theAppModules, process.cwd()); 
-Archie.createApp(servicesTree, function(err, archie) {
-    if(err){
-        throw err;
-    }
-    // ready
-});
+    var servicesTree = Archie.resolveConfig(theAppModules, process.cwd()); 
+    Archie.createApp(servicesTree, function(err, archie) {
+        if(err){
+            throw err;
+        }
+        // ready
+    });
 ```
 
 NOTE: the second argument in resolveConfig (above) is the root path, relative to which all packagePath's are loaded.
