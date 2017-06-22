@@ -1,4 +1,4 @@
-# ArchieJS - modular code architecture in nodejs with dependency chains
+# ArchieJS - writing modular code in nodejs with dependency chains
 
 Archiejs is a nodejs dependency chaining framework. Its unique because your it allows breaking application logic into independent loosely coupled modules. The same also greatly increases reuse of modules across similar types of projects/sub-projects.
 
