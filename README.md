@@ -1,6 +1,6 @@
-# ArchieJS - dependency chaining in nodejs
+# ArchieJS - modular code architecture in nodejs with dependency chains
 
-Archiejs is a nodejs dependency injection framework. Its unique because your it allows breaking application logic into independent loosely coupled modules. The same also greatly increases reuse of modules across similar types of projects/sub-projects.
+Archiejs is a nodejs dependency chaining framework. Its unique because your it allows breaking application logic into independent loosely coupled modules. The same also greatly increases reuse of modules across similar types of projects/sub-projects.
 
 These modules are different from npm modules (actually are a thin layer of logic above npm's); one - they have a lifecycle (initialization and termination), and two - form dependency trees from an external JSON/JS file. These are more similar to npm modules that have peerDependencies specified between them. Also archiejs modules are also different from npm modules in below respects :-
 
@@ -42,7 +42,7 @@ You can find examples for a [module directory](https://github.com/archiejs/demo-
 
 * Offers better handling of complex nodejs projects. [ArchitectJs presentation](http://www.slideshare.net/sergimansilla/architecting-large-nodejs-applications-14912706) is a good source for understanding the benefits of the architecture.
 * Offers a way to write business logic in isolated modules - thin wrappers over NPM modules. 
-* Modules have a lifecycle and are initialized in proper sequence, as per the dependency injection tree.
+* Modules have a lifecycle and are initialized in proper sequence, as per the dependency injection/chaining tree.
 
 
 ## Demo apps
