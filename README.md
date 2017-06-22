@@ -4,7 +4,7 @@ Archiejs is a nodejs dependency chaining framework. Its unique because your it a
 
 These modules are different from npm modules (actually are a thin layer of logic above npm's); one - they have a lifecycle (initialization and termination), and two - form dependency trees from an external JSON/JS file. These are more similar to npm modules that have peerDependencies specified between them. Also archiejs modules are also different from npm modules in below respects :-
 
-1. dependency tree of modules resides outside of the module code - gives a similar appearance as a SBT build system file in java (for example), 
+1. dependency tree (pointing to of modules) resides outside of the code, 
 2. configurations can be passed to modules in a standard manner, 
 and 
 3. all this makes it easier to assemble modules for writing comprehensive testcases (or mocking entire modules).
