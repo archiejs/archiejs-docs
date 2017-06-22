@@ -1,4 +1,4 @@
-# ArchieJS - a dependency injection framework
+# ArchieJS - dependency chaining in nodejs
 
 Archiejs is a nodejs dependency injection framework. Its unique because your it allows breaking application logic into independent loosely coupled modules. The same also greatly increases reuse of modules across similar types of projects/sub-projects.
 
