@@ -1,6 +1,12 @@
-# ArchieJS - writing modular code in nodejs with dependency chains
+# ArchieJS - writing modular code in nodejs
 
-Archiejs is a nodejs dependency chaining framework. Its unique because your it allows breaking application logic into independent loosely coupled modules. The same also greatly increases reuse of modules across similar types of projects/sub-projects.
+Archiejs enforces the tenets of modular design on nodejs codebases.
+
+* Strong encapsulation
+* Well defined interfaces
+* Explicit dependencies 
+
+Archiejs is also a nodejs dependency chaining framework. Its unique because your it allows breaking application logic into independent loosely coupled modules. The same also greatly increases reuse of modules across similar types of projects/sub-projects.
 
 These modules are different from npm modules (actually are a thin layer of logic above npm's); one - they have a lifecycle (initialization and termination), and two - form dependency trees from an external JSON/JS file. These are more similar to npm modules that have peerDependencies specified between them. Also archiejs modules are also different from npm modules in below respects :-
 
