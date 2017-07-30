@@ -44,11 +44,31 @@ you should read about Archiejs. This structure or architecture is also very popu
 You can find examples for a [module directory](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/tree/master/modules) and [dependency tree (see var `exports.app`)](https://github.com/archiejs/demo-basicapp-googlecloudvision-reciept-scanner/blob/master/deptree.js) in our demo app.
 
 
-## Benefits
+## Advantages recap
 
-* Offers better handling of complex nodejs projects. [ArchitectJs presentation](http://www.slideshare.net/sergimansilla/architecting-large-nodejs-applications-14912706) is a good source for understanding the benefits of the architecture.
-* Offers a way to write business logic in isolated modules - thin wrappers over NPM modules. 
-* Modules have a lifecycle and are initialized in proper sequence, as per the dependency injection/chaining tree.
+1. Loose coupling: Organizing nodejs project into small independent modules using dependency
+   injection. The modules act like Java packages, where they make limited functionality 
+   publicaly available.
+2. Manage lifecycle of modules: Archiejs knows the dependencies between different modules in 
+   the project and initializes them in the right sequence. (In the next versions, this can be 
+   built on to manage lifecycle events of modules).
+3. Better testing: Each module will have its own suite of testcases. Its easier to mock modules becuase
+   service boundaries are better defined.
+4. Better maintainablity: Each module can have its own versioning of npm modules. One archiejs module
+   can use an older version of an npm module, while the newer written once use newer versions.
+   (see section on differences with npm modules below)
+5. Lesser boilerplate: Applying enhancers to modules and reduce boiler plate code. For example,
+   we can can convert objects into db-tables or wrap them using microservices,
+   using existing enhancers (see `demo-webapp-mongo-redis-ticket_booking`).
+6. Reusablity: Because service boundaries are better defined, its easier to split a modular monolith
+   into microserveces when the need arises; and also reuse the modules in different projects.
+7. All your codebase is in one place. 
+
+## Who should us it
+
+* Will your project grow bigger and perhaps you would need to break it into microservices. Archiejs offers better handling of complex nodejs projects. [ArchitectJs presentation](http://www.slideshare.net/sergimansilla/architecting-large-nodejs-applications-14912706) is a good source for understanding the benefits of the architecture.
+
+* Do you care about code reusablity across several client projects. Archiejs offers a better and consistent way to write business logic in isolated/reusable modules - with clear service boundaries.
 
 
 ## Demo apps
@@ -62,7 +82,7 @@ You can find examples for a [module directory](https://github.com/archiejs/demo-
 
 ## Boilerplate
 
-(Untested for a while - let me know if its broken. Mail in footer)
+(THIS IS LIKELY TO BE BROKEN CURRENTLY - mail me and I will upload a new boilerplate or download it from here - https://bitbucket.org/navalsaini/dimagi_interview - will require minor changes)
 
 Install archiejs cli
 
