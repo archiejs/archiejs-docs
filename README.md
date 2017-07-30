@@ -64,7 +64,7 @@ You can find examples for a [module directory](https://github.com/archiejs/demo-
    into microserveces when the need arises; and also reuse the modules in different projects.
 7. All your codebase is in one place. 
 
-## Who should us it
+## Who should use it
 
 * Will your project grow bigger and perhaps you would need to break it into microservices. Archiejs offers better handling of complex nodejs projects. [ArchitectJs presentation](http://www.slideshare.net/sergimansilla/architecting-large-nodejs-applications-14912706) is a good source for understanding the benefits of the architecture.
 
